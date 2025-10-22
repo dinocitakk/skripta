@@ -1,0 +1,315 @@
+<!DOCTYPE html> 
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Lekcija 1 - Kako dodati CSS u HTML</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 class="glavni-naslov">Dino Čitak - Web projekti 2.E</h1>
+<hr color="blue">
+<nav class="navbar">
+    <a href="#lekcija1" class="nav-btn">Lekcija 1</a>
+    <a href="#lekcija2" class="nav-btn">Lekcija 2</a>
+    <a href="#lekcija3" class="nav-btn">Lekcija 3</a>
+    <a href="#lekcija4" class="nav-btn">Lekcija 4</a>
+  </nav>
+<!-- LEKCIJA 1 -->
+
+  <h1 id="lekcija1">Lekcija 1: Kako dodati CSS u HTML</h1>
+  <p>Postoje tri načina kako možemo dodati CSS u HTML dokument:</p>
+
+  <ul>
+    <li><b>Inline CSS</b> – stil pišemo direktno u HTML element</li>
+    <li><b>Internal CSS</b> – stil pišemo unutar &lt;style&gt; taga u &lt;head&gt;</li>
+    <li><b>External CSS</b> – stil pišemo u posebnu .css datoteku</li>
+  </ul>
+
+  <h2>Primjeri:</h2>
+
+  <div class="code-box">
+&lt;!-- Inline CSS --&gt;<br>
+&lt;p style="color:red;"&gt;Ovo je crveni tekst&lt;/p&gt;<br><br>
+
+&lt;!-- Internal CSS --&gt;<br>
+&lt;style&gt;<br>
+&nbsp;&nbsp;p { color: blue; }<br>
+&lt;/style&gt;<br><br>
+
+&lt;!-- External CSS --&gt;<br>
+&lt;link rel="stylesheet" href="style.css"&gt;
+  </div>
+
+  <p><b>Važno:</b> Najbolja praksa je koristiti <span class="plavi-tekst">external CSS</span> jer razdvaja sadržaj i dizajn.</p>
+
+  <!-- LJEKCIJA 2 -->
+<h1 class="naslov-lekcija2" id="lekcija2">Lekcija 2: Opacity i Gradient</h1>
+
+<p>U CSS-u možemo mijenjati **prozirnost elemenata** pomoću <b>opacity</b> i stvarati prelaze boja pomoću <b>gradient</b>.</p>
+
+<h2>1. Opacity (prozirnost)</h2>
+<p>Opacity određuje koliko je element proziran. Vrijednosti idu od <b>0</b> (potpuno prozirno) do <b>1</b> (potpuno neprozirno).</p>
+
+<div class="code-box">
+&lt;!-- Primjer opacity --&gt;<br>
+&lt;div style="background-color:blue; color:white; padding:20px; opacity:0.5;"&gt;<br>
+&nbsp;&nbsp;Ovo je poluprozirni plavi okvir<br>
+&lt;/div&gt;
+</div>
+
+<h2>2. Gradient (prijelaz boja)</h2>
+<p>Gradient omogućuje da se boje postepeno mijenjaju, umjesto jednobojnog elementa. Najčešće se koristi <b>linear-gradient</b>.</p>
+
+<div class="code-box">
+&lt;!-- Primjer linearnog gradienta --&gt;<br>
+&lt;div style="background: linear-gradient(to right, red, yellow); color:black; padding:20px;"&gt;<br>
+&nbsp;&nbsp;Ovo je div s prelaskom boja od crvene do žute<br>
+&lt;/div&gt;
+</div>
+
+<h2>Primjer u slici (opacity + gradient)</h2>
+<p>Ovako možemo kombinirati oba svojstva:</p>
+
+<div class="code-box">
+&lt;div style="background: linear-gradient(to right, purple, pink); padding:20px; color:white; opacity:0.7;"&gt;<br>
+&nbsp;&nbsp;Ovaj okvir ima gradient i djelomičnu prozirnost<br>
+&lt;/div&gt;
+</div>
+
+<h2>Primjer: Kombiniranje Gradienta i Opacity</h2>
+<p>U ovom primjeru koristimo linearni gradient i opacity zajedno:</p>
+
+<div class="code-box">
+&lt;div style="background: linear-gradient(to right, purple, pink); padding:20px; color:white; opacity:0.7;"&gt;<br>
+&nbsp;&nbsp;Ovaj okvir ima gradient i djelomičnu prozirnost&lt;/div&gt;
+</div>
+
+<div class="real-gradient-box">
+  Ovaj okvir ima gradient i djelomičnu prozirnost
+</div>
+
+<p>✅ Napomena: <b>opacity</b> utječe i na tekst unutar elementa, dok <b>background-color</b> ili <b>background-image</b> može biti proziran bez da tekst postane proziran koristeći <code>rgba()</code>.</p>
+
+<!--LEKCIJA 3 CSS POSITIONING-->
+
+<h1 class="lekcija-naslov3" id="lekcija3">Lekcija 3 - CSS Positioning</h1>
+<h2 class="lekcija3-podnaslov">CSS Positioning – Najvažnije stvari</h2>
+
+
+<h3><b>1. Što je positioning?</b></h3>
+
+<p>Positioning u CSS-u određuje na koji način se element postavlja unutar web stranice.
+Postoji 5 osnovnih tipova positioninga.</p>
+
+<h2 class="lekcija3-podnaslov">Vrste positioninga</h2>
+<ul>
+  <li><b>static</b></li>
+  <li><b>relative</b></li>
+  <li><b>absolute</b></li>
+  <li><b>fixed</b></li>
+  <li><b>sticky</li>
+</ul>
+
+<h2 class="zindex">Z-Index</h2>
+<ul>
+<li>Određuje <b>redoslijed slojeva elemenata</b> (tko je "ispred", tko "iza").</li>
+<li>Samo elementi s position vrijednošću različitom od <b>static</b> <b>koriste z-index</b>.</li>
+</ul>
+
+
+<h2>Primjer: Z-indexa</h2>
+<div class="code-box">
+ <pre><code>
+&lt;style&gt;
+.container {
+  position: relative;
+}
+
+.black-box {
+  position: relative;
+  z-index: 1;
+  border: 2px solid black;
+  height: 100px;
+  margin: 30px;
+}
+
+.gray-box {
+  position: absolute;
+  z-index: 3; &lt;!-- gray box will be above both green and black box --&gt;
+  background: lightgray;
+  height: 60px;  
+  width: 70%;
+  left: 50px;
+  top: 50px;
+}
+
+.green-box {
+  position: absolute;
+  z-index: 2; &lt;!-- green box will be above black box --&gt;
+  background: lightgreen;
+  width: 35%;
+  left: 270px;
+  top: -15px;
+  height: 100px;
+}
+&lt;/style&gt;
+</code></pre>
+
+<pre><code>
+&lt;div class="container"&gt;
+  &lt;div class="black-box"&gt;Black box (z-index: 1)&lt;/div&gt;
+  &lt;div class="gray-box"&gt;Gray box (z-index: 3)&lt;/div&gt;
+  &lt;div class="green-box"&gt;Green box (z-index: 2)&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+</div>
+
+<div class="container">
+  <div class="black-box">Black box (z-index: 1)</div>
+  <div class="gray-box">Gray box (z-index: 3)</div>
+  <div class="green-box">Green box (z-index: 2)</div>
+</div>
+
+<style>
+ .container {
+  position: relative;
+}
+
+.black-box {
+  position: relative;
+  z-index: 1;
+  border: 2px solid black;
+  height: 100px;
+  margin: 30px;
+}
+
+.gray-box {
+  position: absolute;
+  z-index: 3; /* gray box will be above both green and black box */
+  background: lightgray;
+  height: 60px;  
+  width: 70%;
+  left: 50px;
+  top: 50px;
+}
+
+.green-box {
+  position: absolute;
+  z-index: 2; /* green box will be above black box */
+  background: lightgreen;
+  width: 35%;
+  left: 270px;
+  top: -15px;
+  height: 100px;
+}
+</style>
+
+
+<!--LEKCIJA 4-->
+<h1 style="margin-top: 50px; margin-bottom: 30px;" id="lekcija4">Lekcija 4: Sjene i zaobljeni rubovi</h1>
+
+<h2>CSS Box Shadow – Sjene elemenata</h2>
+<p>Svojstvo box-shadow u CSS-u koristi se za dodavanje sjene iza elemenata (npr. okvira, slika, gumbova, kutija…).
+Omogućuje da elementi izgledaju istaknutije i modernije.</p>
+<h2>Osnovni kod:</h2>
+
+<pre><code>
+<div class="code-box">
+box-shadow: horizontal vertical blur spread color;
+</div>
+</code></pre>
+<h2>Značenje</h2>
+<ul>
+<li>horizontal – koliko sjena ide udesno (npr. 5px)</li>
+<li>vertical – koliko ide prema dolje (npr. 5px)</li>
+<li>blur – koliko je sjena zamućena (npr. 10px)</li>
+<li>spread – koliko je velika sjena (opcionalno)</li>
+<li>color – boja sjene (npr. gray ili rgba(0,0,0,0.3))</li>
+</ul>
+<h2>Primjer(css)</h2>
+<pre><code>
+<div class="code-box">
+div {
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  box-shadow: 5px 5px 10px gray;
+}
+</div>
+</code></pre>
+<p>Ovaj kod stvara sivu sjenu 5px desno i 5px dolje, s blagim zamućenjem</p>
+
+<h2>Primjer unutarnje sjene-inset(css)</h2>
+<pre><code>
+<div class="code-box">
+div {
+  box-shadow: inset 3px 3px 5px gray;
+}
+</div>
+</code></pre>
+
+<h2>Prozirne sjene(css)</h2>
+<p>Pomoću <b>RGBA</b> boja možeš dobiti nježnije sjene:</p>
+<pre><code>
+<div class="code-box">
+div {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+</div>
+</code></pre>
+
+<h2>Primjena na slike i gumbove(css)</h2>
+<p>Sjenu možeš koristiti da slike ili gumbi izgledaju profesionalnije.</p>
+<pre><code>
+<div class="code-box">
+img {
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  border-radius: 10px;
+}
+
+button {
+  box-shadow: 2px 2px 6px gray;
+}
+</div>
+</code></pre>
+ 
+<h2>Primjer upotrebe svojstva box-shadow i zakrivljenih rubova:</h2>
+
+<div style="
+  width: 250px;
+  height: 120px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+  border-radius: 8px;
+  text-align: center;
+  line-height: 120px;
+  font-weight: bold;
+  margin: 20px 0;
+">
+Ovdje se vidi sjena!
+</div>
+
+<h2>Zaobljeni rubovi</h2>
+<p>Svojstvo <b>border-radius</b> omogućava zaobljene kutove elemenata poput div-ova, slika, gumbova…</p>
+<pre><code>
+<div class="code-box">
+selector {
+  border-radius: vrijednost;
+}
+</div>
+</code></pre>
+
+<p><b>Vrijednosti mogu bit:</b></p>
+<ul>
+<li>px (pikseli) npr. 10px</li>
+<li>% npr. 50% → za krug</li>
+<li>više vrijednosti → različiti kutovi različito zaobljeni</li>
+</ul>
+
+
+
+
+</body>
+</html>
