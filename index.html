@@ -348,6 +348,43 @@ Koristi se za izradu fleksibilnih i responzivnih rasporeda bez floatova ili pozi
 <li>align-content – razmak između redova</li>
 </ul>
  
+<h2>Flex box primjer</h2>
+<p>Fleksibilni raspored mora imati roditeljski element kojem je svojstvo <em>display</em> postavljeno na <em>flex</em>.</p>
+<p>Direktni elementi unutar fleksibilnog kontejnera automatski postaju fleksibilni elementi.</p>
+
+<div style="display: flex; background-color: DodgerBlue;">
+  <div style="background-color: #f1f1f1; margin: 10px; padding: 20px; font-size: 30px;">1</div>
+  <div style="background-color: #f1f1f1; margin: 10px; padding: 20px; font-size: 30px;">2</div>
+  <div style="background-color: #f1f1f1; margin: 10px; padding: 20px; font-size: 30px;">3</div>
+</div>
+
+<h2>Flex items primjer</h2>
+<p>U primjeru ispod, svaki element unutar kontejnera ima različitu veličinu jer koristi svojstvo <em>flex</em>.</p>
+
+<div style="display: flex; background-color: DodgerBlue;">
+  <div style="background-color: #f1f1f1; margin: 10px; padding: 20px; font-size: 30px; flex: 1;">1</div>
+  <div style="background-color: #f1f1f1; margin: 10px; padding: 20px; font-size: 30px; flex: 2;">2</div>
+  <div style="background-color: #f1f1f1; margin: 10px; padding: 20px; font-size: 30px; flex: 3;">3</div>
+</div>
+
+ <!--LEKCIAJ 6-->
+
+ <h1>Dimenzije u CSS</h1>
+ <p><b>Imamo dvije vrste dimenzija, a to su:</b></p>
+ <li>Absolutne</li>
+ <li>Relativne</li>
+
+ <h2>Absolutne dimenzije</h2>
+<p style="font-size: 19px;">Glavna mjerna jedinica za absolutne dimenzije je PIXEL(px)</p>
+<p style="font-size: 19px;">Također imamo mjerne jedinice kao što su: cm,mm...</p>
+
+<h2>Relativne dimenzije</h2>
+<p style="font-size: 18px;">Relativne dimenzije zavise od drugih elemenata ili postavki preglednika i omogućuju fleksibilan i responzivan dizajn. Najčešće jedinice</p>
+<li>% – postotak veličine roditeljskog elementa (npr. width: 50%;)</li>
+<li>em – relativno u odnosu na veličinu fonta trenutnog elementa (npr. font-size: 2em;)</li>
+<li>rem – relativno u odnosu na veličinu fonta root elementa (html)</li>
+<li>vw i vh – postotak širine i visine viewporta (npr. width: 50vw;)</li>
+
 
 </body>
 </html>
